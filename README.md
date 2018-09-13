@@ -26,3 +26,20 @@
     
 </beans>
 ```
+
+## Aop部分
+#### 如何使用
+通过Java程序声明：
+* 继承`CommonAdvice`类，重写相应的方法
+* 创建`Map<beanId, List<Advice>>` 对象，键为注入bean的Id，值为应用在该类上的通知。
+在创建Application对象时，显示指定，例如：
+```
+List<Advice> advices = new ArrayList<>();
+advices.add(new TimeAdvice());
+advices.add(new ExceptionAdvice());
+Map<String, List<Advice>> beanAdvices = new HashMap<>();
+beanAdvices.put("englishHelloServices", advices);
+beanAdvices.put("chineseHelloServices", advices);
+		
+ApplicationContext context = new ClassPathXmlApplicationContext(config, beanAdvices);
+```
