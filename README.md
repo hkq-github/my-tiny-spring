@@ -12,6 +12,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
     
+    <!-- 注入String属性 -->
     <bean id="chineseHelloServices" class="test.services.ChineseHelloServicesImpi" >
         <property name="message" value="你好"></property>
     </bean>
@@ -19,7 +20,8 @@
     <bean id="englishHelloServices" class="test.services.EnglishHelloServicesImpi" > 
         <property name="message" value="Hello"></property>
     </bean>
-        
+    
+    <!-- 注入其他bean -->
     <bean id="app" class="test.App">
         <property name="helloServices" ref="englishHelloServices" />
     </bean>
