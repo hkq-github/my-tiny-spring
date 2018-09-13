@@ -44,7 +44,9 @@ public class ExceptionAdvice extends CommonAdvice{
 		System.out.println("Boo..Exception.......");
 	}
 }
+```
 
+使用java程序定义，向bean织入切面
 ```
 List<Advice> advices = new ArrayList<>();
 advices.add(new TimeAdvice());
