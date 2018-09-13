@@ -12,6 +12,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
     
+    <!-- 注入String属性 -->
     <bean id="chineseHelloServices" class="test.services.ChineseHelloServicesImpi" >
         <property name="message" value="你好"></property>
     </bean>
@@ -19,7 +20,8 @@
     <bean id="englishHelloServices" class="test.services.EnglishHelloServicesImpi" > 
         <property name="message" value="Hello"></property>
     </bean>
-        
+    
+    <!-- 注入其他bean -->
     <bean id="app" class="test.App">
         <property name="helloServices" ref="englishHelloServices" />
     </bean>
@@ -30,7 +32,7 @@
 ## Aop部分
 #### 如何使用
 通过Java程序声明：
-* 继承`CommonAdvice`类，重写相应的方法
+* 创建切面：继承`CommonAdvice`类，重写相应的方法
 * 创建`Map<beanId, List<Advice>>` 对象，键为注入bean的Id，值为应用在该类上的通知。
 
 在创建Application对象时，显示指定，例如：
