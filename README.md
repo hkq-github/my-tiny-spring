@@ -4,7 +4,7 @@
 
 ## Ioc部分
 #### 如何使用
-声明一个bean `<bean id=" " class=" " >`, 注入属性 `<property name="propertyName" value|ref = "String or bean">`。下面是一个例子：
+使用xml配置文件，如声明一个bean `<bean id=" " class=" " >`, 注入属性 `<property name="propertyName" value|ref = "String or bean">`。下面是一个例子：
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
