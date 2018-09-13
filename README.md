@@ -32,7 +32,19 @@
 通过Java程序声明：
 * 继承`CommonAdvice`类，重写相应的方法
 * 创建`Map<beanId, List<Advice>>` 对象，键为注入bean的Id，值为应用在该类上的通知。
+
 在创建Application对象时，显示指定，例如：
+
+创建一个Advice
+```
+public class ExceptionAdvice extends CommonAdvice{
+
+	@Override
+	public void afterThrowing() {
+		System.out.println("Boo..Exception.......");
+	}
+}
+
 ```
 List<Advice> advices = new ArrayList<>();
 advices.add(new TimeAdvice());
@@ -42,4 +54,13 @@ beanAdvices.put("englishHelloServices", advices);
 beanAdvices.put("chineseHelloServices", advices);
 		
 ApplicationContext context = new ClassPathXmlApplicationContext(config, beanAdvices);
+```
+
+## 运行
+项目中包含一个例子，导入项目后，运行test.Main类即可，可以修改resource下applicationContext.xml，向App注入不同的属性。运行结果如下：
+```
+Before 2018-09-13 23:06:07:7
+Hello hkq.
+After...
+Boo..Exception.......
 ```
